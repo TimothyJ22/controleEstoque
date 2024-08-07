@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoquezão do 3ão</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Camiseta, Chaveiro, Copo Térmico e Boton-->
+    <h2>Estoque</h2>
+    <p>Informe o produto que será incluso no estoque ou, se será vendido para a exclusão do estoque</p>
+    <p>Selecione o produto
+    <select name="selecionar" id="sel">
+        <option value="selecione">Selecione...</option>
+        <option value="Camiseta">Camiseta</option>
+        <option value="Chaveiro">Chaveiro</option>
+        <option value="Copo Térmico">Copo Térmico</option>
+        <option value="Boton">Boton</option>
+    </p>
+    </select>
+    <label id="num"></label>
+    <br>
+    <button onclick="venda()">Vender</button> <button onclick="estocar()">Estocar</button>
+
+    <script>
+        
+        let cami = 0
+        let bot = 0
+        let co = 0
+        let chav = 0
+
+        function venda(){
+            let saida = ''
+            var escolha = document.getElementById('sel')
+            var selec = escolha.value
+            
+            if(selec == 'Camiseta'){
+                cami-=1
+            }
+
+            else if(selec == 'Chaveiro'){
+                chav-=1
+            }
+
+            else if(selec == 'Copo Térmico'){
+                co-=1
+            }
+
+            else
+                bot-=1
+
+            saida = `Camiseta: ${cami} Chaveiro: ${chav} Copo Térmico: ${co} Boton: ${bot}`
+            document.getElementById('num').innerText = saida
+        }
+
+        function estocar(){
+            let saida = ''
+            var escolha = document.getElementById('sel')
+            var selec = escolha.value
+            
+            if(selec == 'Camiseta'){
+                cami+=1
+            }
+
+            else if(selec == 'Chaveiro'){
+                chav+=1
+            }
+
+            else if(selec == 'Copo Térmico'){
+                co+=1
+            }
+
+            else 
+                bot+=1
+
+            saida = `Camiseta: ${cami} Chaveiro: ${chav} Copo Térmico: ${co} Boton: ${bot}`
+            document.getElementById('num').innerText = saida    
+        }
+
+
+    </script>
+</body>
+</html>
